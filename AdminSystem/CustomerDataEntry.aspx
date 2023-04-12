@@ -6,8 +6,8 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
-    <form id="form2" runat="server">
+<body style="height: 398px">
+    <form id="form1" runat="server">
         <div>
         </div>
         <asp:Label ID="lblCusId" runat="server" style="z-index: 1; left: 10px; top: 42px; position: absolute" Text="Customer ID"></asp:Label>
@@ -32,10 +32,6 @@
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 317px; position: absolute"></asp:Label>
         <asp:Button ID="btnOk" runat="server" OnClick="btnOk_Click" style="z-index: 1; left: 10px; top: 362px; position: absolute; height: 35px" Text="Ok" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 67px; top: 360px; position: absolute" Text="Cancel" />
-    </form>
-    <form id="form1" runat="server">
-        <div>
-        </div>
     </form>
 </body>
 </html>
