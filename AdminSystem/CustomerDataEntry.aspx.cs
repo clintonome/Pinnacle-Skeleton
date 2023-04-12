@@ -23,8 +23,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         customer.CusEmail = txtCusEmail.Text;
         customer.Active = chkEmailAlerts.Checked;
         customer.CusAdress = txtCusAdress.Text;
-        customer.CusId = Convert.ToInt32(txtCusId);
-        customer.CusDOB = Convert.ToDateTime(txtCusDob);
+        customer.CusId = (int)txtCusId.TextMode;
+        customer.CusDOB = DateTime.Now;
         Session["Customer"] = customer;
         //navigate to viewer page
         Response.Redirect("CustomerViewer.aspx");
