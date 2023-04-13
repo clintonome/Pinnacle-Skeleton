@@ -72,7 +72,30 @@ namespace Testing1
             Customer.CusDOB = TestData;
             Assert.AreEqual(Customer.CusDOB, TestData);
         }
-
+        [TestMethod]
+        public void FindMethodOk()
+        {
+            clsCustomer customer = new clsCustomer();
+            Boolean Found = false;
+            int CusId = 21;
+            Found = customer.Find(CusId);
+            Assert.IsTrue(Found);
+        }
+        [TestMethod]
+        public void TestCusIdFound()
+        {
+            clsCustomer customer = new clsCustomer();
+            Boolean Found = false;
+            Boolean Ok = true;
+            Int32 CusId = 21;
+            Found = customer.Find(CusId);
+            if (customer.CusId != 21)
+            {
+                Ok = false;
+            }
+            Assert.IsTrue(Ok);
+           
+        }
     }
 }
 
