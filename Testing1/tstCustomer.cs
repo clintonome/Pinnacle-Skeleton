@@ -30,7 +30,7 @@ namespace Testing1
         {
             clsCustomer Customer = new clsCustomer();
             Assert.IsNotNull(Customer);
-            string TestData = "grange lane";
+            string TestData = "LE3 6EE ";
             //assign the data to the property
             Customer.CusAdress = TestData;
             //test to see that the two values are the same
@@ -50,7 +50,7 @@ namespace Testing1
         {
             clsCustomer Customer = new clsCustomer();
             Assert.IsNotNull(Customer);
-            string TestData = "User12345";
+            string TestData = "JohnSmith";
             Customer.CusUsername = TestData;
             Assert.AreEqual(Customer.CusUsername, TestData);
         }
@@ -77,25 +77,110 @@ namespace Testing1
         {
             clsCustomer customer = new clsCustomer();
             Boolean Found = false;
-            int CusId = 21;
+            int CusId = 1;
             Found = customer.Find(CusId);
             Assert.IsTrue(Found);
         }
         [TestMethod]
         public void TestCusIdFound()
         {
+            
             clsCustomer customer = new clsCustomer();
             Boolean Found = false;
-            Boolean Ok = true;
-            Int32 CusId = 21;
-            Found = customer.Find(CusId);
-            if (customer.CusId != 21)
+            Boolean OK = true;
+            Int32 AddressNo = 5;
+            Found = customer.Find(AddressNo);
+            if (customer.CusId != 5)
             {
-                Ok = false;
+                OK = false;
             }
-            Assert.IsTrue(Ok);
-           
+            Assert.IsTrue(OK);
         }
+        [TestMethod]
+        public void TestCusAdressFound()
+        {
+            clsCustomer customer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CusId = 5;
+            Found = customer.Find(CusId);
+            if (customer.CusAdress != "XXX XXX")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestCusDOBFound()
+        {
+            clsCustomer customer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CusId = 5;
+            Found = customer.Find(CusId);
+            if (customer.CusDOB != Convert.ToDateTime("01/01/2001"))
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestAlertsActiveFound()
+        {
+            clsCustomer customer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CusId = 5;
+            Found = customer.Find(CusId);
+            if (customer.Active != true)
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestCusEmailFound()
+        {
+            clsCustomer customer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CusId = 5;
+            Found = customer.Find(CusId);
+            if (customer.CusEmail != "TestName@gmail.com")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestCusUsernameFound()
+        {
+            clsCustomer customer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CusId = 5;
+            Found = customer.Find(CusId);
+            if (customer.CusUsername != "TestName")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void TestCusPasswordFound()
+        {
+            clsCustomer customer = new clsCustomer();
+            Boolean Found = false;
+            Boolean OK = true;
+            Int32 CusId = 5;
+            Found = customer.Find(CusId);
+            if (customer.CusPassword != "TestPassword")
+            {
+                OK = false;
+            }
+            Assert.IsTrue(OK);
+        }
+
     }
 }
 
