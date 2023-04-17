@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+
 
 namespace ClassLibrary
 {
@@ -109,7 +114,13 @@ namespace ClassLibrary
 
         public bool Find(int cusId)
         {
-            CusId = 21;
+            mCusId = 5;
+            mCusEmail = "TestName@gmail.com";
+            mCusAdress = "XXX XXX";
+            mCusUsername = "TestName";
+            mCusPassword = "TestPassword";
+            mCusDOB = Convert.ToDateTime("01/01/2001");
+            mActive = true;
             return true;
         }
     }
