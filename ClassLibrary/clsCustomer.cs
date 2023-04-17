@@ -114,14 +114,27 @@ namespace ClassLibrary
 
         public bool Find(int cusId)
         {
-            mCusId = 5;
-            mCusEmail = "TestName@gmail.com";
-            mCusAdress = "XXX XXX";
-            mCusUsername = "TestName";
-            mCusPassword = "TestPassword";
-            mCusDOB = Convert.ToDateTime("01/01/2001");
-            mActive = true;
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderID", cusId);
+            DB.Execute("sproc_tblOrder_FlterByCusId");
+            if (DB.Count == 1)
+            {
+
+
+                mCusUsername = Convert.ToString(DB.DataTable.Rows[0]["CusUsername"]);
+                mCusId = Convert.ToInt32(DB.DataTable.Rows[0]["CusId"]);
+                mCusPassword = Convert.ToString(DB.DataTable.Rows[0]["CusPassword"]);
+                mCusEmail = Convert.ToString(DB.DataTable.Rows[0]["CusEmail"]);
+                mCusAdress = Convert.ToString(DB.DataTable.Rows[0]["CusAdress"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["EmailAlerts"]);
+                mCusDOB = Convert.ToDateTime(DB.DataTable.Rows[0]["CusDOB"]);
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
