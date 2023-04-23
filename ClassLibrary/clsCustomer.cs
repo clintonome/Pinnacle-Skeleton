@@ -136,5 +136,59 @@ namespace ClassLibrary
                 return false;
             }
         }
+
+        public string Valid(string cusUsername, string cusPassword, string cusEmail, string cusAdress, string cusDOB)
+        {
+            String Error = "";
+            //DateTime  DateTemp;
+            if (cusUsername.Length == 0)
+            { 
+                Error = Error + "The Username must not be left blank";
+            }
+            if (cusUsername.Length > 51)
+
+            {
+                Error = Error + "The Username must not be greater than 50";
+            }
+            if (cusPassword.Length == 0)
+            {
+                Error = Error + "The password was left blank";
+            }
+            if (cusPassword.Length > 51)
+            {
+                Error = Error + " The password was too long";
+            }
+            if (cusEmail.Length == 0)
+            {
+                Error = Error + "The Email was left blank";
+            }
+            if (cusEmail.Length > 51)
+            {
+                Error = Error + " The password was too long";
+            }
+            try
+            {
+
+                DateTime DateTemp = Convert.ToDateTime(cusDOB);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Error = Error + "The Date should Not be in the past";
+                }
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Error = Error + "The Date should Not be in the future";
+                }
+
+            }
+            catch
+            {
+                Error = Error + "The Date added is invalid";
+            }
+            //return any error messege
+            return Error;
+
+
+            //return "";
+        }
     }
 }
