@@ -19,7 +19,7 @@
         <p>
             &nbsp;</p>
         <asp:Label ID="lblCusEmail" runat="server" style="z-index: 1; left: 10px; top: 119px; position: absolute" Text="Email"></asp:Label>
-        <asp:Label ID="lblCusPassword" runat="server" style="z-index: 1; left: 10px; top: 237px; position: absolute" Text="Password"></asp:Label>
+        <asp:Label ID="lblCusPassword" runat="server" style="z-index: 1; left: 10px; top: 243px; position: absolute" Text="Password"></asp:Label>
         <asp:TextBox ID="txtCusPassword" runat="server" style="z-index: 1; left: 167px; top: 235px; position: absolute"></asp:TextBox>
         <asp:CheckBox ID="chkEmailAlerts" runat="server" style="z-index: 1; left: 10px; top: 278px; position: absolute" Text="Email Alerts" />
         <asp:TextBox ID="txtCusEmail" runat="server" style="z-index: 1; left: 168px; top: 119px; position: absolute"></asp:TextBox>
@@ -32,6 +32,7 @@
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 317px; position: absolute"></asp:Label>
         <asp:Button ID="btnOk" runat="server" OnClick="btnOk_Click" style="z-index: 1; left: 10px; top: 362px; position: absolute; height: 35px" Text="Ok" />
         <asp:Button ID="btnCancel" runat="server" style="z-index: 1; left: 67px; top: 360px; position: absolute" Text="Cancel" />
+        <asp:Button ID="Findbtn" runat="server" OnClick="Findbtn_Click" style="z-index: 1; left: 201px; top: 360px; position: absolute" Text="Find" />
     </form>
 </body>
 </html>

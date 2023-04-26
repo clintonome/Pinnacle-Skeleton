@@ -115,7 +115,7 @@ namespace ClassLibrary
         public bool Find(int cusId)
         {
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@OrderID", cusId);
+            DB.AddParameter("@CusId", cusId);
             DB.Execute("sproc_tblOrder_FlterByCusId");
             if (DB.Count == 1)
             {
