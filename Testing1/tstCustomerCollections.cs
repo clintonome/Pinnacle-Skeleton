@@ -103,8 +103,105 @@ namespace Testing1
             //allCustomer.(TestItem);
 
         }
+        [TestMethod]
+        public void AddMethodOk()
+        {
+            clsCustomerCollection allCustomer = new clsCustomerCollection();
+            clsCustomer TestItem = new clsCustomer();
+            Int32 PrimaryKey = 0;
+            TestItem.Active = true;
+            TestItem.CusUsername = "BradJohn";
+            TestItem.CusId = 1;
+            TestItem.CusPassword = "Passsword1";
+            TestItem.CusEmail = "BradJohn@gmail.com";
+            TestItem.CusAdress = "LE2 1EE";
+            TestItem.CusDOB = DateTime.Now.Date;
+            allCustomer.ThisCustomer = TestItem;
+            PrimaryKey = allCustomer.Add();
+            allCustomer.ThisCustomer.Find(PrimaryKey);
+            Assert.AreEqual(allCustomer.ThisCustomer, TestItem);
 
+        }
 
+        [TestMethod]
+        public void UpdateMethod()
+        {
+            clsCustomerCollection allCustomer = new clsCustomerCollection();
+            clsCustomer TestItem = new clsCustomer();
+            Int32 PrimaryKey = 0;
+            TestItem.Active = true;
+            TestItem.CusUsername = "BradJohn";
+            TestItem.CusId = 1;
+            TestItem.CusPassword = "Passsword1";
+            TestItem.CusEmail = "BradJohn@gmail.com";
+            TestItem.CusAdress = "LE2 1EE";
+            TestItem.CusDOB = DateTime.Now.Date;
+            allCustomer.ThisCustomer = TestItem;
+            PrimaryKey = allCustomer.Add();
+            TestItem.Active = true;
+            TestItem.CusUsername = "BenJohn";
+            TestItem.CusId = 3;
+            TestItem.CusPassword = "Passsword1231";
+            TestItem.CusEmail = "BenJohn@gmail.com";
+            TestItem.CusAdress = "LE2 6EE";
+            TestItem.CusDOB = DateTime.Now.Date;
+            allCustomer.ThisCustomer.Find(PrimaryKey);
+            Assert.AreEqual(allCustomer.ThisCustomer, TestItem);
 
+        }
+
+       [TestMethod]
+       public void DeleteMethodOk()
+        {
+            clsCustomerCollection allCustomer = new clsCustomerCollection();
+            clsCustomer TestItem = new clsCustomer();
+            Int32 PrimaryKey = 0;
+            TestItem.Active = true;
+            TestItem.CusUsername = "BradJohn";
+            TestItem.CusId = 1;
+            TestItem.CusPassword = "Passsword1";
+            TestItem.CusEmail = "BradJohn@gmail.com";
+            TestItem.CusAdress = "LE2 1EE";
+            TestItem.CusDOB = DateTime.Now.Date;
+            allCustomer.ThisCustomer = TestItem;
+            PrimaryKey = allCustomer.Add();
+            TestItem.CusId = PrimaryKey;
+            allCustomer.ThisCustomer.Find(PrimaryKey);
+            allCustomer.Delete();
+            Boolean Found = allCustomer.ThisCustomer.Find(PrimaryKey);
+            Assert.IsFalse(Found);
+        }
+       [TestMethod]
+       public void ReportByUsernameOk()
+        {
+            clsCustomerCollection allCustomer = new clsCustomerCollection();
+            clsCustomer FilteredUsername = new clsCustomer();
+            FilteredUsername.ReportByUsername("");
+            Assert.AreEqual(allCustomer.Count, FilteredUsername);
+        }
+        [TestMethod]
+        public void ReportByCusUsername()
+        {
+            clsCustomerCollection FilteredUsername = new clsCustomerCollection();
+            Boolean Ok = false;
+            FilteredUsername.ReportByUsername("XXXXXX");
+            if (FilteredUsername.Count == 8)
+            {
+                if (FilteredUsername.CustomerList[0].CusId != 36)
+                {
+                    Ok = false;
+                }
+                if (FilteredUsername.CustomerList[1].CusId != 37)
+                {
+                    Ok = false;
+                }
+
+            }
+            else
+            {
+                Ok = false;
+            }
+            Assert.IsTrue(Ok);
+        }
     }
 }

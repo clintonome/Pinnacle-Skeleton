@@ -116,7 +116,7 @@ namespace ClassLibrary
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@CusId", cusId);
-            DB.Execute("sproc_tblOrder_FlterByCusId");
+            DB.Execute("sproc_tblCustomer_FilterByCusId");
             if (DB.Count == 1)
             {
 
@@ -170,10 +170,6 @@ namespace ClassLibrary
             {
 
                 DateTime DateTemp = Convert.ToDateTime(cusDOB);
-                if (DateTemp < DateTime.Now.Date)
-                {
-                    Error = Error + "The Date should Not be in the past";
-                }
                 if (DateTemp > DateTime.Now.Date)
                 {
                     Error = Error + "The Date should Not be in the future";
@@ -189,6 +185,16 @@ namespace ClassLibrary
 
 
             //return "";
+        }
+
+        public void ReportbyUsername(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ReportByUsername(string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
